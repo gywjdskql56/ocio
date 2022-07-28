@@ -1,10 +1,5 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from "react"
 import Grid from "@mui/material/Grid";
-import MUIDataTable from "mui-datatables";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Switch from "@material-ui/core/Switch";
-// Material Dashboard 2 React components
 import MDBox from "components/MDBox";
 // Material Dashboard 2 React example components
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
@@ -13,58 +8,55 @@ import Footer from "examples/Footer";
 import ReportsBarChart from "examples/Charts/BarCharts/ReportsBarChart";
 import ReportsLineChart from "examples/Charts/LineCharts/ReportsLineChart";
 import ComplexStatisticsCard from "examples/Cards/StatisticsCards/ComplexStatisticsCard";
-import MaterialReactTable from 'material-react-table';
-import { Box, Button } from '@mui/material';
-import FileDownloadIcon from '@mui/icons-material/FileDownload';
-import { ExportToCsv } from 'export-to-csv';
-import { data } from './makeData';
-// Data
+import MaterialReactTable from "material-react-table";
+import { Box, Button } from "@mui/material";
+import FileDownloadIcon from "@mui/icons-material/FileDownload";
+import { ExportToCsv } from "export-to-csv";
 import reportsBarChartData from "layouts/dashboard/data/reportsBarChartData";
 import reportsLineChartData from "layouts/dashboard/data/reportsLineChartData";
-
-// Dashboard components
 import Projects from "layouts/dashboard/components/Projects";
 import OrdersOverview from "layouts/dashboard/components/OrdersOverview";
+import { data } from "./makeData";
 
 export default function Dashboard() {
   const { sales, tasks } = reportsLineChartData;
 
     const columns = [
   {
-    accessorKey: 'id',
-    header: 'ID',
+    accessorKey: "id",
+    header: "ID",
     size: 40,
   },
   {
-    accessorKey: 'firstName',
-    header: 'First Name',
+    accessorKey: "firstName",
+    header: "First Name",
     size: 120,
   },
   {
-    accessorKey: 'lastName',
-    header: 'Last Name',
+    accessorKey: "lastName",
+    header: "Last Name",
     size: 120,
   },
   {
-    accessorKey: 'company',
-    header: 'Company',
+    accessorKey: "company",
+    header: "Company",
     size: 300,
   },
   {
-    accessorKey: 'city',
-    header: 'City',
+    accessorKey: "city",
+    header: "City",
   },
   {
-    accessorKey: 'country',
-    header: 'Country',
+    accessorKey: "country",
+    header: "Country",
     size: 220,
   },
 ];
 
 const csvOptions = {
-  fieldSeparator: ',',
-  quoteStrings: '"',
-  decimalSeparator: '.',
+  fieldSeparator: ",",
+  quoteStrings: "",
+  decimalSeparator: ".",
   showLabels: true,
   useBom: true,
   useKeysAsHeaders: false,
@@ -91,11 +83,10 @@ const csvExporter = new ExportToCsv(csvOptions);
       positionToolbarAlertBanner="bottom"
       renderToolbarTopCustomActions={({ table }) => (
         <Box
-          sx={{ display: 'flex', gap: '1rem', p: '0.5rem', flexWrap: 'wrap' }}
+          sx={{ display: "flex", gap: "1rem", p: "0.5rem", flexWrap: "wrap" }}
         >
           <Button
             color="primary"
-            //export all data that is currently in the table (ignore pagination, sorting, filtering, etc.)
             onClick={handleExportData}
             startIcon={<FileDownloadIcon />}
             variant="contained"
@@ -104,7 +95,6 @@ const csvExporter = new ExportToCsv(csvOptions);
           </Button>
           <Button
             disabled={table.getPrePaginationRowModel().rows.length === 0}
-            //export all rows, including from the next page, (still respects filtering and sorting)
             onClick={() =>
               handleExportRows(table.getPrePaginationRowModel().rows)
             }
@@ -115,7 +105,6 @@ const csvExporter = new ExportToCsv(csvOptions);
           </Button>
           <Button
             disabled={table.getRowModel().rows.length === 0}
-            //export all rows as seen on the screen (respects pagination, sorting, filtering, etc.)
             onClick={() => handleExportRows(table.getRowModel().rows)}
             startIcon={<FileDownloadIcon />}
             variant="contained"
@@ -126,7 +115,6 @@ const csvExporter = new ExportToCsv(csvOptions);
             disabled={
               !table.getIsSomeRowsSelected() && !table.getIsAllRowsSelected()
             }
-            //only export selected rows
             onClick={() => handleExportRows(table.getSelectedRowModel().rows)}
             startIcon={<FileDownloadIcon />}
             variant="contained"
@@ -157,7 +145,7 @@ const csvExporter = new ExportToCsv(csvOptions);
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
                 icon="leaderboard"
-                title="Today's Users"
+                title="Today Users"
                 count="2,300"
                 percentage={{
                   color: "success",

@@ -82,7 +82,7 @@ export default function ColumnGroupingTable() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
-  const handleChangePage = (event: unknown, newPage: number) => {
+  const handleChangePage = (event: any, newPage: number) => {
     setPage(newPage);
   };
 
@@ -105,15 +105,13 @@ export default function ColumnGroupingTable() {
               </TableCell>
             </TableRow>
             <TableRow>
-              {columns.map((column) => (
+              {columns.map((column) =>
                 <TableCell
                   key={column.id}
                   align={column.align}
                   style={{ top: 57, minWidth: column.minWidth }}
-                >
-                  {column.label}
-                </TableCell>
-              ))}
+                >{column.label}</TableCell>
+              )}
             </TableRow>
           </TableHead>
           <TableBody>

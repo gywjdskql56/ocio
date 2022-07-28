@@ -13,8 +13,24 @@
   },
   "plugins": ["react", "prettier"],
   "rules": {
+    "no-unused-vars": "off",
+    "class-methods-use-this": "off",
+    "react/prop-types": "off",
+    "react/button-has-type": "off",
+    "no-else-return": "off",
+    "arrow-body-style": "off",
+    "react/no-access-state-in-setstate": "off",
+    "object-shorthand": "off",
+    "import/order": "off",
+    "no-shadow": "off",
+    "prefer-template": "off",
+    "spaced-comment": "off",
+    "react/destructuring-assignment": "off",
+    "react/no-unstable-nested-components": "off",
+    "react/sort-comp": "off",
+    "no-nested-ternary": "off",
     "prettier/prettier": [
-      "error",
+      0,
       {
         "endOfLine": "auto"
       }

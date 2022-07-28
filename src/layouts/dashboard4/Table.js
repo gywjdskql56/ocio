@@ -260,6 +260,10 @@ export default class App extends Component {
       });
   };
 
+    handleAddBtn() {
+    this.setState({ addComposeModal: true });
+  }
+
   sort = (page) => {
     this.setState({ isLoading: true });
 
@@ -280,7 +284,7 @@ export default class App extends Component {
   };
 
   delete(dataIndex) {
-    let equipment = this.state.data[dataIndex];
+    const equipment = this.state.data[dataIndex];
 
     confirmAlert({
       title: "",
@@ -307,9 +311,7 @@ export default class App extends Component {
     });
   }
 
-  handleAddBtn() {
-    this.setState({ addComposeModal: true });
-  }
+
 
   render() {
     const columns = [
@@ -430,8 +432,8 @@ export default class App extends Component {
       download: false,
       serverSide: true,
       print: false,
-      count: count,
-      rowsPerpage: rowsPerpage,
+      count,
+      rowsPerpage,
       rowsPerPageOptions: [],
       selectableRowsHideCheckboxes: false,
       selectableRows: "none",
@@ -466,7 +468,7 @@ export default class App extends Component {
             className="fa fa-plus-circle"
             aria-hidden="true"
             onClick={this.handleAddBtn}
-          ></i>
+          />
         </div>
         <MUIDataTable
           title={
