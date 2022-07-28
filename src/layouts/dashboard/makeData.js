@@ -19,7 +19,7 @@ console.log(tableData[0]["자산군"]);
 
 const range = (len) => {
   const arr = []
-  for (let i = 0; i < len; i++) {
+  for (let i = 0; i < len; i+=1) {
     arr.push(i);
   }
   return arr
